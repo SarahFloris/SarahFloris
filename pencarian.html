@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Produk Toko Bunga</title>
+    <link rel="stylesheet" href="pencarian.css">
+  </head>
+  <body>
+    <h1>Daftar Produk Toko  Sarah Floris</h1>
+
+    <!-- Pencarian -->
+    <div class="search-bar">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Cari barang berdasarkan kode atau nama..."
+        onkeyup="searchProduct()"
+      />
+    </div>
+
+    <div id="productList"></div>
+
+    <!-- Detail Produk -->
+    <div id="productDetail" class="product-detail">
+      <h2>Detail Produk</h2>
+      <img id="detailImage" src="" alt="Product Image" />
+      <h3 id="detailName"></h3>
+      <p id="detailKode"></p>
+      <p id="detailPrice"></p>
+    </div>
+
+    <script>
+      const productData = [
+      {
+      "kode_barang": "BPWS001",
+      "nama_barang": "BPWS001",
+      "harga_barang": "Rp 600,000",
+      "gambar_barang": "img/BPW/BPWS001.jpeg"
+    },
+    {
+      "kode_barang": "BPWS002",
+      "nama_barang": "BPWS002",
+      "harga_barang": "Rp 600,000",
+      "gambar_barang": "img/BPW/BPWS002.jpeg"
+    },
+    {
+        "kode_barang": "BPWS003",
+        "nama_barang": "BPWS003",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS003.jpeg"
+      },
+      {
+        "kode_barang": "BPWS004",
+        "nama_barang": "BPWS004",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS004.jpg"
+      },
+      {
+        "kode_barang": "BPWS005",
+        "nama_barang": "BPWS005",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS005.jpg"
+      },
+      {
+        "kode_barang": "BPWS006",
+        "nama_barang": "BPWS006",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS006.jpeg"   
+      },
+      {
+        "kode_barang": "BPWS007",
+        "nama_barang": "BPWS007",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS007.jpeg" 
+      },
+      {
+        "kode_barang": "BPWS008",
+        "nama_barang": "BPWS008",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS008.jpg" 
+      },
+      {
+        "kode_barang": "BPWS009",
+        "nama_barang": "BPWS009",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS009.jpeg" 
+      },
+      {
+        "kode_barang": "BPWS010",
+        "nama_barang": "BPWS010",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS010.jpg" 
+      },
+      {
+        "kode_barang": "BPWS011",
+        "nama_barang": "BPWS011",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS011.jpg" 
+      },
+      {
+        "kode_barang": "BPWS012",
+        "nama_barang": "BPWS012",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS012.jpg" 
+      },
+      {
+        "kode_barang": "BPWS013",
+        "nama_barang": "BPWS013",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS013.jpg" 
+      },
+      {
+        "kode_barang": "BPWS014",
+        "nama_barang": "BPWS014",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS014.jpg" 
+      },
+      {
+        "kode_barang": "BPWS015",
+        "nama_barang": "BPWS015",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS015.jpg" 
+      },
+      {
+        "kode_barang": "BPWS016",
+        "nama_barang": "BPWS016",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS016.jpg" 
+      },
+      {
+        "kode_barang": "BPWS017",
+        "nama_barang": "BPWS017",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS017.jpg" 
+      },
+      {
+        "kode_barang": "BPWS018",
+        "nama_barang": "BPWS018",
+        "harga_barang": "Rp 600,000",
+        "gambar_barang": "img/BPW/BPWS018.jpg" 
+      }
+      ];
+
+      function displayProducts(products) {
+        const productList = document.getElementById("productList");
+        productList.innerHTML = "";  // Clear existing products
+        products.forEach((product) => {
+          const productDiv = document.createElement("div");
+          productDiv.classList.add("product");
+          productDiv.innerHTML = `
+                    <img src="${product.gambar_barang}" alt="${product.nama_barang}" onclick="showProductDetail('${product.kode_barang}')">
+                    <h3>${product.nama_barang}</h3>
+                    <p>Kode: ${product.kode_barang}</p>
+                    <p class="price">${product.harga_barang}</p>
+                `;
+          productList.appendChild(productDiv);
+        });
+      }
+
+      // Fungsi pencarian
+      function searchProduct() {
+        const searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const filteredProducts = productData.filter((product) => {
+          return (
+            product.kode_barang.toLowerCase().includes(searchInput) ||
+            product.nama_barang.toLowerCase().includes(searchInput)
+          );
+        });
+        displayProducts(filteredProducts);
+      }
+
+      // Menampilkan detail produk
+      function showProductDetail(kode_barang) {
+        const product = productData.find((item) => item.kode_barang === kode_barang);
+        if (product) {
+          document.getElementById("detailImage").src = product.gambar_barang;
+          document.getElementById("detailName").textContent = product.nama_barang;
+          document.getElementById("detailKode").textContent = `Kode: ${product.kode_barang}`;
+          document.getElementById("detailPrice").textContent = `Harga: ${product.harga_barang}`;
+          
+          // Menampilkan detail produk
+          document.getElementById("productDetail").style.display = "block";
+        }
+      }
+
+      // Menampilkan semua produk pada awalnya
+      displayProducts(productData);
+    </script>
+  </body>
+</html>

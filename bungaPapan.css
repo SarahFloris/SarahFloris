@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "poppins", sans-serif;
+}
+
+/* navigasi  start */
+nav {
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  
+}
+
+nav div img {
+  width: 80px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: 'poppins' ,sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 8px 0;
+  transition: all 0.3s;
+  transition-duration: 300ms;
+  border-bottom: 1.5px solid rgba(154, 35, 35, 0);
+}
+
+nav ul li a:hover {
+  color: rgb(154, 35, 35);
+  padding: 8px 0;
+  border-bottom: 1.5px solid rgb(154, 35, 35);
+}
+.menu-icon {
+  font-size: 24px;
+  display: none;
+}
+/* navigasi end */
+
+body {
+  
+  background-color: #e0e0e0;
+}
+
+.awal2{
+  margin-top: 3rem;
+  padding-top: 3rem;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.awal {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bold-line {
+  margin: 0 auto;
+  height: 0.5px;
+  transform: scaleY(0.1);
+  width: 85%;
+  background-color: rgb(147, 146, 146);
+}
+
+/* tombol beli sekarang  start*/
+.product-item {
+  text-align: center;
+}
+
+.btn-container {
+  margin-top: 10px;
+}
+
+.buy-now {
+  /* Gaya untuk tombol Beli Sekarang */
+  background-color: #4caf50; /* Hijau */
+  color: white;
+  padding: 5px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.buy-now i {
+  margin-right: 8px;
+}
+
+.buy-now:hover {
+  background-color: #20b958;
+}
+
+/* tombol beli sekarang  end*/
+
+/* tampilan tablet */
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul.hilang {
+    display: none;
+  }
+  .menu-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+/* tampilan tablet end */

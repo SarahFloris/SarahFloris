@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'poppins' sans-serif;
+}
+
+body {
+  background-color: #e0e2e8;
+  /* min-height: 3000px; */
+}
+
+/* navigasi start */
+nav {
+  background-color: rgb(255, 254, 254);
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  
+}
+
+nav div img {
+  width: 80px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: 'poppins' ,sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 8px 0;
+  transition: all 0.3s;
+  transition-duration: 300ms;
+  border-bottom: 1.5px solid rgba(154, 35, 35, 0);
+}
+
+nav ul li a:hover {
+  color: rgb(154, 35, 35);
+  padding: 8px 0;
+  border-bottom: 1.5px solid rgb(154, 35, 35);
+}
+.menu-icon {
+  font-size: 24px;
+  display: none;
+}
+/* navigasi end */
+
+.home {
+    padding: 1rem 2rem;
+    display: flex;
+    background-color: #a09d9d;
+    position: relative;
+    justify-content: center;
+    align-items: center;  
+}   
+
+.judul {
+  font-family: 'poppins', sans-serif;
+  color: rgb(165, 43, 43);
+}
+
+.p_katalog {
+  color: rgb(15, 15, 15);
+  padding-bottom: 1rem;
+  font-family: 'poppins', sans-serif;
+  text-align: center;
+}
+
+/* bunga papan start */
+.show_me {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(25, 25, 107);
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.show_me:hover {
+  color: rgb(11, 25, 234);
+  text-decoration: underline;
+
+}
+
+.bunga_papan {
+  padding-top: 3rem;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'poppins, sans-serif' ;
+}
+/* bunga papan end */
+
+/* tampilan tablet */
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul.hilang {
+    display: none;
+  }
+  .menu-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+/* tampilan tablet end */
